@@ -1,4 +1,3 @@
 faster-whisper
 pyaudio
 keyboard
-pyperclip
