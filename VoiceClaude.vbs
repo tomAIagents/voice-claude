@@ -6,7 +6,7 @@ dir = fso.GetParentFolderName(WScript.ScriptFullName)
 
 pythonw = ""
 
-' 1. Ищем pythonw через where, пропуская WindowsApps (заглушка Microsoft Store)
+' Search pythonw via where, skip WindowsApps stub
 On Error Resume Next
 Dim exec
 Set exec = shell.Exec("cmd /c where pythonw 2>nul")
@@ -24,7 +24,7 @@ If Err.Number = 0 Then
 End If
 On Error GoTo 0
 
-' 2. Если не нашли через where — проверяем стандартные пути
+' Check standard install paths
 If pythonw = "" Then
     Dim candidates(9)
     candidates(0) = shell.ExpandEnvironmentStrings("%LOCALAPPDATA%") & "\Programs\Python\Python313\pythonw.exe"
@@ -55,4 +55,4 @@ End If
 Dim mainScript
 mainScript = dir & "\main.py"
 
-shell.Run "powershell -WindowStyle Hidden -Command ""Start-Process '"& pythonw &"' -ArgumentList '""""" & mainScript & """""' -Verb RunAs""", 0, False
+shell.Run "powershell -WindowStyle Hidden -Command ""Start-Process '" & pythonw & "' -ArgumentList '""""" & mainScript & """""' -Verb RunAs""", 0, False
