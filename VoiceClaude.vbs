@@ -1,4 +1,4 @@
-Dim fso, dir, pythonw, shell
+Dim fso, dir, shell
 Set fso = CreateObject("Scripting.FileSystemObject")
 Set shell = CreateObject("WScript.Shell")
 
