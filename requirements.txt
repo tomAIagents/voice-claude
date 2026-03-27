@@ -2,3 +2,6 @@ faster-whisper
 pyaudio
 keyboard
 pyperclip
+numpy
+Pillow
+pystray
